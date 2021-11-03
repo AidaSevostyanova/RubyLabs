@@ -15,10 +15,10 @@ def pokemon
     name=gets.chomp()
     puts "Введите цвет для Покемона: "
     colour=gets.chomp()
-    pokemons<<{name=>colour}
+    pokemons<<{"name"name=>"colour:"colour}
   end
   p pokemons
 end
 
-script("bmw_cs")
+script("love")
 pokemon

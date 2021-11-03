@@ -28,7 +28,18 @@ def find(id)
   end
 end
 
+def delete(id)
+  file = File.open(BUFFER, 'w')
+  File.foreach(FILMS_LIST_PATH).with_index do |film,index|
+    file.puts(film) if index!=id
+  end
+  file.close
+  File.write(FILMS_LIST_PATH,File.read(BUFFER))
+  File.delete(BUFFER) if File.exist?(BUFFER)
+end
+
 index
 where("drama")
 update(2, "After - drama")
 find(3)
+delete(1)

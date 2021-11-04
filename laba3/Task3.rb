@@ -21,6 +21,33 @@ def deposit(money)
   money
 end
 
+def withdraw(money)
+  puts "ATM dispenses the following bills:\n100\n500\n1000\n2000\n5000\nYou can withdraw no more than 9900 at a time\nEnter your amount:"
+  amount=gets.to_i
+  if amount<100
+    puts "You entered the amount less than the minimum, please try again"
+  elsif amount>=100 && amount<10000
+    if amount%100==0
+      if amount<=money
+        money=money-amount
+        File.write(BALANCE_LIST_PATH, "#{money}\n", mode: "w")
+        puts "Your balance: #{money}"
+      else
+        puts "You entered the amount that exceeds your current balance, please try again"
+      end
+    else
+      puts "You entered the wrong bill, please try again"
+    end
+  elsif amount>=10000
+      puts "You entered the amount that exceeds the maximum withdraw at a time, please try again"
+  end
+  money
+end
+
+def balance(money)
+  puts "Your balance: #{money}"
+end
+
 def quit(money)
   File.write(BALANCE_LIST_PATH, "#{money}\n", mode: "w")
 end

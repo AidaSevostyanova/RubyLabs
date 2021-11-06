@@ -52,23 +52,27 @@ def quit(money)
   File.write(BALANCE_LIST_PATH, "#{money}\n", mode: "w")
 end
 
-if File.exist?(BALANCE_LIST_PATH)
-  money=File.read(BALANCE_LIST_PATH).to_i
-else money=CONST_MONEY.to_i
-end
-loop do
-puts "Deposit money (Press D)\nWithdraw money (Press W)\nCheck balance (Press B)\nQuit (Press Q)"
-  letter=gets.chomp.downcase
-  case letter
-  when "d"
-    money=deposit(money)
-  when "w"
-    money=withdraw(money)
-  when "b"
-    balance(money)
-  when "q"
-    quit(money)
-    break
-  else puts "No such command exists, please enter the correct letter"
+def task3
+  if File.exist?(BALANCE_LIST_PATH)
+    money=File.read(BALANCE_LIST_PATH).to_i
+  else money=CONST_MONEY.to_i
+  end
+  loop do
+    puts "Deposit money (Press D)\nWithdraw money (Press W)\nCheck balance (Press B)\nQuit (Press Q)"
+    letter=gets.chomp.downcase
+    case letter
+    when "d"
+      money=deposit(money)
+    when "w"
+      money=withdraw(money)
+    when "b"
+      balance(money)
+    when "q"
+      quit(money)
+      break
+    else puts "No such command exists, please enter the correct letter"
+    end
   end
 end
+
+task3

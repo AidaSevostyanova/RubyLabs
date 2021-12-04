@@ -1,6 +1,7 @@
 require 'rspec'
 require './laba2/lab2.rb'
 
+
 RSpec.describe "Main" do
   it "script1" do
     expect(script("bmw_cs")).to eq(64)

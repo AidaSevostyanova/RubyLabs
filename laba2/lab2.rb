@@ -8,13 +8,13 @@ def script(word)
 end
 
 def pokemon
-  puts "Сколько добавить покемонов? "
+  puts "Сколько добавить покемонов?"
   num=gets.to_i
   pokemons=[]
   num.times do
-    puts "Введите имя для Покемона: "
+    puts "Введите имя для Покемона:"
     name=gets.chomp()
-    puts "Введите цвет для Покемона: "
+    puts "Введите цвет для Покемона:"
     colour=gets.chomp()
     pokemons<<{name=>colour}
   end

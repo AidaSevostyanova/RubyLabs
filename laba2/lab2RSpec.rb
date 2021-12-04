@@ -1,5 +1,5 @@
 require 'rspec'
-require './lab2.rb'
+require './laba2/lab2.rb'
 
 RSpec.describe "Main" do
   it "script1" do

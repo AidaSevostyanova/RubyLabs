@@ -1,0 +1,31 @@
+<h1 style="text-align: center">Лабораторные работы</h1><br>
+
+<button type="button" class="btn btn-outline-primary"><%= link_to "Создать работу", new_lab_path%></button><br><br>
+
+<% flash.each do |type, msg| %>
+  <div class="alert alert-<%= type %>">
+    <%= msg %>
+  </div>
+<% end %>
+
+<table class="table">
+  <thead>
+    <th scope="col">Название</th>
+    <th scope="col">Описание</th>
+    <th scope="col">Оценка</th>
+  </thead>
+
+  <tbody>
+    <% @labs.each do |lab| %>
+      <tr>
+        <td><%= lab.title %></td>
+        <td><%= lab.description %></td>
+        <td><%= lab.grade %></td>
+        <td><button type="button" class="btn btn-outline-primary"><%= link_to "Изменить", edit_lab_path(lab) %></button></td>
+        <td><button type="button" class="btn btn-outline-secondary"><%= link_to "Открыть", lab_path(lab) %></button></td>
+        <td><button type="button" class="btn btn-outline-warning"><%= link_to "Оценить", mark_lab_path(lab) %></button></td>
+        <td><button type="button" class="btn btn-outline-danger"><%= link_to "Удалить", lab_path(lab), method: :delete, data: {confirm: "Вы уверены?"} %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

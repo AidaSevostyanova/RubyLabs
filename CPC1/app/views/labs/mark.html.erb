@@ -1,0 +1,15 @@
+<h2 style="text-align: center">Добавление оценки</h2><br>
+
+<%= form_with url: mark_lab_path(@lab) do |f| %>
+  <% if @lab.errors.any?%>
+    <% @lab.errors.full_messages.each do |msg| %>
+    <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+
+  <h4>Оценка</h4>
+    <%= f.text_field :grade, {:class => 'form-control'} %><br>
+
+    <%= f.submit "Сохранить",({:class => 'btn btn-success'}) %>
+    <button type="button" class="btn btn-secondary"><%= link_to "Назад", root_path %></button>
+<% end %>

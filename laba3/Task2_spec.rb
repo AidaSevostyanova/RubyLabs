@@ -3,7 +3,7 @@ require './laba3/Task2.rb'
 
 RSpec.describe "Main" do
   before do
-    File.write("D:/University/Ruby/laba3/results.txt","",mode:"w")
+    File.write(RESULTS_LIST_PATH,"")
   end
   it "task2_1" do
     allow_any_instance_of(Kernel).to receive(:gets).and_return(37,26,56,21,19,40,15,32,45,28)

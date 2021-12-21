@@ -10,11 +10,11 @@ def task2
     age=gets.to_i
     break if age==-1
     for employee in staff
-      File.write(RESULTS_LIST_PATH, "#{employee}\n", mode: "a") if employee.include?(age.to_s)
-      staff.delete(employee) if employee.include?(age.to_s)
+      File.write(RESULTS_LIST_PATH, "#{employee}\n", mode: "a") if employee.include?("#{age}")
+      staff.delete(employee) if employee.include?("#{age}")
     end
   end
   File.foreach(RESULTS_LIST_PATH) { |employee| puts employee }
 end
 
-task2
+#task2

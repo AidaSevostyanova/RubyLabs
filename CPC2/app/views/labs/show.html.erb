@@ -1,0 +1,6 @@
+<h1>Название: <%= @lab.title %></h1><br>
+<h2>Описание: <%= @lab.description %></h2><br>
+<h2>Оценка: <%= @lab.grade %></h2><br>
+<button type="button" class="btn btn-primary"><%= link_to "Изменить", edit_lab_path(@lab) %></button>
+<button type="button" class="btn btn-secondary"><%= link_to "Назад", labs_path %></button>
+<button type="button" class="btn btn-warning"><%= link_to "Оценить", mark_lab_path %></button>

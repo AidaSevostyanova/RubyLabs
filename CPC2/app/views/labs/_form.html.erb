@@ -1,0 +1,16 @@
+<%= form_with model: @lab do |f|%>
+  <% if @lab.errors.any?%>
+    <% @lab.errors.full_messages.each do |msg|%>
+    <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+
+  <h4>Название</h4>
+    <%= f.text_field :title, required: true%><br>
+
+  <h4>Описание</h4>
+    <%= f.text_area :description, {:class => 'form-control'}%><br>
+
+    <%= f.submit "Сохранить", ({:class => 'btn btn-success'}) %>
+    <button type="button" class="btn btn-secondary"><%= link_to "Назад", root_path%></button>
+<% end %>
